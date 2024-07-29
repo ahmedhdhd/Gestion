@@ -1,0 +1,59 @@
+<div class="table-responsive" class="mx-auto" style="width: 1200px;">
+  
+    <div class="row">  <div class="col">
+        <input type="text" [(ngModel)]="search" (ngModelChange)="getutilisateurs()"
+               class="form-control" placeholder="recherche">
+      </div>
+        <div class="col">
+            <div class="text-end">
+                <button    routerLink="/addproduct"    style="font-size: 2em; cursor: pointer;"   class="fa fa-plus" ></button>
+            </div>
+        </div>
+    </div>
+ 
+
+    <table class="table">
+        <thead class="text-uppercase">
+            <tr>
+                <th><div class="py-2">FullName</div></th>
+                <th><div class="py-2">Email</div></th>
+                <th><div class="py-2">telephone</div></th>
+          
+
+                <th ><div class="py-2"></div></th>
+                <th ><div class="py-2"></div></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of user">
+               
+                <td class="align-middle" >{{item.fullName }}</td>
+                <td class="align-middle" >{{item.email }}</td>
+                <td class="align-middle" >{{item.phoneNumber }}</td>
+
+              
+
+                <td class="align-middle" >
+                    <div>
+                    <a class="text-danger">
+                        <i 
+                        routerLink="/editproduct/{{item.id}}" 
+                            class="fa fa-edit" 
+                            style="font-size: 2em; cursor: pointer;"></i>
+                    </a>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <a class="text-danger">
+                        <i (click)="deleteutilisateurs(item.id)" class="align-middle"
+                            class="fa fa-trash" 
+                            style="font-size: 2em; cursor: pointer;"></i>
+                    </a>
+                </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
